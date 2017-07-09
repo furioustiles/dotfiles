@@ -1,0 +1,260 @@
+[colors]
+background = [0]#002b36
+foreground = #dc322f
+foreground-alt= #ebdbb2
+black = #000000
+red = #dc322f
+green = #859900
+orange = #cb4b16
+blue = #268bd2
+magenta = #d33682
+cyan = #2aa198
+lightgray = #ABB2BF
+darkgray = #5C6370
+white = #FFFFFF
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/furioustiles]
+monitor = eDP1
+
+width = 100%
+height = 27
+
+font-0 = Fantasque Sans Mono Nerd Font:size=13:weight=bold
+font-1 = FontAwesome:size=11;0
+
+background = ${colors.background}
+foreground = ${colors.foreground-alt}
+
+tray-position = center
+tray-maxsize = 16
+
+modules-left = i3
+modules-center = date
+modules-right = xbacklight volume wireless-network battery powermenu
+
+separator = |
+separator-background = ${colors.foreground-alt}
+separator-foreground = ${colors.foreground-alt}
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/xwindow]
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 75
+
+format-foreground = ${colors.background}
+format-background = ${colors.magenta}
+format-prefix = " "
+format-suffix = " "
+
+format-margin = 1
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format =  <label-layout>
+format-foreground = ${colors.magenta}
+format-label-prefix= " "
+
+[module/clock]
+type = internal/date
+
+interval = 1.0
+
+time = %H:%M:%S
+
+format =  <label>
+format-prefix = " "
+format-foreground = ${colors.foreground-alt}
+
+label = %time%
+
+[module/calendar]
+type = internal/date
+
+interval = 1.0
+
+date = %d/%m/%y
+
+format = %{T1} <label>
+format-foreground = ${colors.foreground-alt}
+format-prefix = " "
+
+label = %date%
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+
+format-volume-foreground = ${colors.foreground-alt}
+
+format-volume = %{T1} <label-volume>
+
+format-volume-prefix = " "
+format-muted-prefix = " "
+format-volume-suffix = " "
+format-muted-suffix = " "
+
+label-muted =  [muted]
+label-muted-foreground = ${colors.red}
+label-muted-font = 1
+
+[module/powermenu]
+type = custom/menu
+
+format-suffix = " "
+format-padding = 1.5
+label-open = 
+label-open-foreground = ${colors.orange}
+label-close = 
+label-close-foreground = ${colors.orange}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = log out
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = log out
+menu-3-0-exec = i3-msg exit
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[module/battery]
+type = internal/battery
+
+full-at = 98
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+time-format = %H:%M
+
+label-charging = %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
+label-full = 
+
+format-charging = CHR <animation-charging> <label-charging>
+format-charging-foreground = ${colors.foreground-alt}
+
+format-discharging = BAT <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.orange}
+
+format-full-foreground = ${colors.green}
+
+format-charging-prefix = " "
+format-discharging-prefix = " "
+format-full-prefix = " "
+format-charging-suffix = " "
+format-discharging-suffix = " "
+format-full-suffix = " "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+
+index-sort = true
+wrapping-scroll = true
+
+label-unfocused-foreground = ${colors.foreground-alt}
+
+label-focused = %index%
+label-focused-foreground = ${colors.foreground-alt}
+label-focused-background = ${colors.blue}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+label-visible = %index%
+label-visible-padding = 1
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+format-connected-prefix = " "
+format-disconnected-prefix = " "
+format-connected-suffix = " "
+format-disconnected-suffix = " "
+format-connected = <label-connected>
+
+format-disconnected = <label-disconnected>
+
+label-connected =  %essid% (%signal%%) %downspeed:5%
+label-connected-foreground = ${colors.foreground-alt}
+
+label-disconnected =  [not connected]
+label-disconnected-foreground = ${colors.red}
+
+[module/wired-network]
+type = internal/network
+interface = enp4s0f2
+
+format-connected-prefix = " "
+format-disconnected-prefix = " "
+
+format-connected = <label-connected>
+
+format-disconnected = <label-disconnected>
+
+label-connected =  %local_ip%
+label-connected-foreground = ${colors.foreground-alt}
+
+label-disconnected =  [not plugged]
+label-disconnected-foreground = ${colors.red}
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+label =  %percentage%%
+label-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+label =  %date%   %time%
+interval = 1.0
+date = %m/%d/%Y
+time = %H:%M:%S
+
+
+; vim:ft=dosini
