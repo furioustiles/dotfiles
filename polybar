@@ -1,3 +1,6 @@
+; furioustiles Polybar config (~/.config/polybar/config)
+
+
 [colors]
 background = [0]#002b36
 foreground = #dc322f
@@ -32,7 +35,7 @@ foreground = ${colors.foreground-alt}
 tray-position = center
 tray-maxsize = 16
 
-modules-left = i3
+modules-left = i3 spotify
 modules-center = date
 modules-right = xbacklight volume wireless-network battery powermenu
 
@@ -91,7 +94,13 @@ label = %date%
 
 [module/volume]
 type = internal/volume
+master-soundcard = default
+;speaker-soundcard = default
+;headphone-soundcard = default
+
 master-mixer = Master
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
 
 format-volume-foreground = ${colors.foreground-alt}
 
@@ -146,20 +155,20 @@ type = internal/battery
 full-at = 98
 
 battery = BAT0
-adapter = AC0
+adapter = ADP1
 
 poll-interval = 5
 
 time-format = %H:%M
 
-label-charging = %percentage%% (%time%)
-label-discharging = %percentage%% (%time%)
-label-full = 
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full =  FULL
 
-format-charging = CHR <animation-charging> <label-charging>
+format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.foreground-alt}
 
-format-discharging = BAT <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.orange}
 
 format-full-foreground = ${colors.green}
@@ -220,7 +229,7 @@ format-connected = <label-connected>
 
 format-disconnected = <label-disconnected>
 
-label-connected =  %essid% (%signal%%) %downspeed:5%
+label-connected =  %essid% (%signal%%) ↑ %downspeed:8%
 label-connected-foreground = ${colors.foreground-alt}
 
 label-disconnected =  [not connected]
@@ -246,6 +255,7 @@ label-disconnected-foreground = ${colors.red}
 [module/xbacklight]
 type = internal/xbacklight
 format = <label>
+format-suffix = " "
 label =  %percentage%%
 label-foreground = ${colors.foreground-alt}
 
@@ -255,6 +265,12 @@ label =  %date%   %time%
 interval = 1.0
 date = %m/%d/%Y
 time = %H:%M:%S
+
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/spotify.sh %artist% - %title%
+tail = true
+interval = 2
 
 
 ; vim:ft=dosini

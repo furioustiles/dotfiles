@@ -1,7 +1,7 @@
-!! furioustiles .Xresources
+!! furioustiles Xresources (~/.Xresources)
 
 
-!! URxvt solarized theme
+!! * solarized theme
 #define S_base03                #002b36
 #define S_base02                #073642
 #define S_base01                #586e75
@@ -20,55 +20,55 @@
 #define S_green                 #859900
 
 
-!! URxvt
+!! *
 
-URxvt.scrollBar:                false
-URxvt.depth:                    32
-URxvt.faceName:                 font-awesome
-URxvt.font:                     xft:Fantasque Sans Mono Nerd Font:size=13:antialias=true
-URxvt.boldFont:                 xft:Fantasque Sans Mono Nerd Font:size=13:bold:antialias=true
-URxvt.background:               [90]S_base03
-URxvt.foreground:               #ebdbb2
-URxvt.fadeColor:                S_base03
-URxvt.cursorColor:              S_base1
-URxvt.pointerColorBackground:   S_base01
-URxvt.pointerColorForeground:   S_base1
-URxvt.internalBorder:           3
-URxvt.externalBorder:           0
-URxvt.border:                   0
-URxvt.borderColor:              S_cyan
+*.scrollBar:                false
+*.depth:                    32
+*.faceName:                 font-awesome
+*.font:                     xft:Fantasque Sans Mono Nerd Font:size=13:antialias=true
+*.boldFont:                 xft:Fantasque Sans Mono Nerd Font:size=13:bold:antialias=true
+*.background:               [90]S_base03
+*.foreground:               #ebdbb2
+*.fadeColor:                S_base03
+*.cursorColor:              S_base1
+*.pointerColorBackground:   S_base01
+*.pointerColorForeground:   S_base1
+*.internalBorder:           3
+*.externalBorder:           0
+*.borderLess:               false
+*.borderColor:              S_green
 
 !! black dark/light
-URxvt.color0:                S_base02
-URxvt.color8:                S_base03
+*.color0:                S_base02
+*.color8:                S_base03
 
 !! red dark/light
-URxvt.color1:                S_red
-URxvt.color9:                S_orange
+*.color1:                S_red
+*.color9:                S_orange
 
 !! green dark/light
-URxvt.color2:                S_green
-URxvt.color10:               S_base01
+*.color2:                S_green
+*.color10:               S_base01
 
 !! yellow dark/light
-URxvt.color3:                S_yellow
-URxvt.color11:               S_base00
+*.color3:                S_yellow
+*.color11:               S_base00
 
 !! blue dark/light
-URxvt.color4:                S_blue
-URxvt.color12:               S_base0
+*.color4:                S_blue
+*.color12:               S_base0
 
 !! magenta dark/light
-URxvt.color5:                S_magenta
-URxvt.color13:               S_violet
+*.color5:                S_magenta
+*.color13:               S_violet
 
 !! cyan dark/light
-URxvt.color6:                S_cyan
-URxvt.color14:               S_base1
+*.color6:                S_cyan
+*.color14:               S_base1
 
 !! white dark/light
-URxvt.color7:                S_base2
-URxvt.color15:               S_base3
+*.color7:                S_base2
+*.color15:               S_base3
 
 
 !! Rofi solarized theme
