@@ -9,6 +9,7 @@ black = #000000
 red = #dc322f
 green = #859900
 orange = #cb4b16
+yellow = #b58900
 blue = #268bd2
 magenta = #d33682
 cyan = #2aa198
@@ -161,15 +162,15 @@ poll-interval = 5
 
 time-format = %H:%M
 
-label-charging = %percentage%%
-label-discharging = %percentage%%
+label-charging = %percentage%% CHR
+label-discharging = %percentage%% BAT
 label-full =  FULL
 
 format-charging = <animation-charging> <label-charging>
-format-charging-foreground = ${colors.foreground-alt}
+format-charging-foreground = ${colors.yellow}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-foreground = ${colors.orange}
+format-discharging-foreground = ${colors.foreground-alt}
 
 format-full-foreground = ${colors.green}
 
